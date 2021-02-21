@@ -54,12 +54,17 @@ Currently zabb only supports the [zoxide][zoxide] implementation of `z`. I welco
 This plugin is designed as a [zinit][zinit] module, but it's also
 compatible with other plugin managers.
 
-The only ZSH plugin manager solves the time-consuming init for
-`nvm`, `nodenv`, `pyenv`, `rvm`, `rbenv`, `fasd`, etc,
-with its async [Turbo Mode][turbo mode].
+You can use [Turbo Mode][turbo mode] to load `zabb`:
 
 ```zsh
 zinit ice wait'1' lucid
+zinit light mellbourn/zabb
+```
+
+Or you can load `zabb` on demand:
+
+```zsh
+zinit ice lucid trigger-load'!zabb'
 zinit light mellbourn/zabb
 ```
 
