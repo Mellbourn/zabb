@@ -103,18 +103,18 @@ _zabb_usage() {
 }
 
 zabb() {
-    z_command=zoxide
+    local z_command=zoxide
     if [ ! -x "$(command -v "$z_command")" ]; then
         echo ""$0" only works if you have \""$z_command"\" installed to implement the \"z\" autojump command" 1>&2
         return 1
     fi
-    z_query=""$z_command" query"
+    local z_query=""$z_command" query"
 
     while getopts "sadh" opt; do
         case $opt in
-        s) shortest=1 ;;
-        a) all=1 ;;
-        d) debug=1 ;;
+        s) local shortest=1 ;;
+        a) local all=1 ;;
+        d) local debug=1 ;;
         h)
             _zabb_help
             return
@@ -127,6 +127,7 @@ zabb() {
     done
     shift $((OPTIND - 1))
 
+    local directory
     if [ -z "$*" ]; then
         directory=$(realpath "$PWD")
     else
