@@ -15,5 +15,13 @@
         "titleBar.inactiveBackground": "#f49fc399",
         "titleBar.inactiveForeground": "#15202b99"
     },
-    "peacock.color": "#f49fc3"
+    "peacock.color": "#f49fc3",
+    "cSpell.words": [
+        "fasd",
+        "nodenv",
+        "pyenv",
+        "rbenv",
+        "zabb",
+        "zinit"
+    ]
 }
