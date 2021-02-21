@@ -77,5 +77,5 @@ Copyright (c) 2021 Klas Mellbourn
 [license icon]: https://img.shields.io/badge/License-MIT-green.svg
 [license]: https://opensource.org/licenses/MIT
 [zinit]: https://github.com/zdharma/zinit
-[turbo mode]: https://github.com/zdharma/zinit#turbo-mode-zsh--53
+[turbo mode]: http://zdharma.org/zinit/wiki/INTRODUCTION/#turbo_mode_zsh_53
 [zoxide]: https://github.com/ajeetdsouza/zoxide
