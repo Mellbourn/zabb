@@ -66,17 +66,17 @@ _zabb_find_abbrevs() {
             ) | awk '!a[$0]++'
 
             if [ -z "$all" ]; then
-                exit 0
+                return
             fi
         fi
     done
 
     if [[ "$abbrevs_found" == true ]]; then
-        exit 0
+        return
     fi
 
     echo "No abbreviation found for $(basename "${directory}")" 1>&2
-    exit 1
+    return 1
 }
 
 _zabb_help() {
@@ -106,7 +106,7 @@ zabb() {
     z_command=zoxide
     if [ ! -x "$(command -v "$z_command")" ]; then
         echo ""$0" only works if you have \""$z_command"\" installed to implement the \"z\" autojump command" 1>&2
-        exit 1
+        return 1
     fi
     z_query=""$z_command" query"
 
@@ -117,11 +117,11 @@ zabb() {
         d) debug=1 ;;
         h)
             _zabb_help
-            exit 0
+            return
             ;;
         *)
             _zabb_usage
-            exit 2
+            return 2
             ;;
         esac
     done
@@ -133,7 +133,7 @@ zabb() {
         directory=$(realpath "$*")
         if [ ! -d "$directory" ]; then
             echo "$directory is not a valid, existing directory" 1>&2
-            exit 3
+            return 3
         fi
     fi
 
