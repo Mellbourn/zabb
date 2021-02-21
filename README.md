@@ -17,7 +17,7 @@ Presenting the solution: `zabb`
 
 Examples:
 
-```
+```zsh
 ~ > ls -d Do*
 Documents Downloads
 ~ > zabb Downloads
@@ -55,7 +55,7 @@ This plugin is designed as a [zinit][zinit] module, but it's also
 compatible with other plugin managers.
 
 The only ZSH plugin manager solves the time-consuming init for
-`nvm`, `nodenv`, `pyenv`, `rvm`, `rbenv`, `thefuck`, `fasd`, etc,
+`nvm`, `nodenv`, `pyenv`, `rvm`, `rbenv`, `fasd`, etc,
 with its async [Turbo Mode][turbo mode].
 
 ```zsh
