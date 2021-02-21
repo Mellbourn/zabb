@@ -15,6 +15,23 @@ Presenting the solution: `zabb`
 
 `zabb` is a command that tries to figure out the shortest memorable abbreviation of a directory that is usable by `z` to unambiguously jump to that directory.
 
+By default, only abbreviations that start the same way as the directory name are returned.
+Non-contiguous, i.e. space separated, abbreviations are not looked for. So, in some fairly rare circumstances the shortest abbreviations may not be found.
+
+```
+USAGE:
+  zabb [<DIRECTORY>]
+
+ARGS:
+  <DIRECTORY>
+      Directory to find z abbrevs for. If none is given, it defaults to current working directory
+
+FLAGS:
+  -s  Allow abbreviations even if they do not start the same way as the directory name. (This will often find shorter abbreviations, but they may be less easy to remember)
+  -a  List all (contiguous) abbreviations (implies -s)
+  -h  Print help
+```
+
 Examples:
 
 ```zsh
