@@ -29,7 +29,7 @@ _zabb_dangerous() {
         _zabb_debug "starting with tilde is a bad abbreviation"
         return 0
     fi
-    return 4
+    return 6
 }
 
 _zabb_find_abbrevs() {
@@ -97,20 +97,26 @@ _zabb_usage() {
     echo "      Directory to find z abbrevs for. If none is given, it defaults to current working directory"
     echo
     echo "FLAGS:"
-    echo "  -s  Allow abbreviations even if they do not start the same way as the directory name. (This will often find shorter abbreviations, but they may be less easy to remember)"
-    echo "  -a  List all (contiguous) abbreviations (implies -s)"
-    echo "  -h  Print help"
+    echo "  -s or --shortest"
+    echo "      Allow abbreviations even if they do not start the same way as the directory name. (This will often find shorter abbreviations, but they may be less easy to remember)"
+    echo "  -a or --all"
+    echo "      List all (contiguous) abbreviations (implies -s)"
+    echo "  -h or --help"
+    echo "      Print help"
 }
 
 zabb() {
     local z_command=zoxide
     if [ ! -x "$(command -v "$z_command")" ]; then
         echo ""$0" only works if you have \""$z_command"\" installed to implement the \"z\" autojump command" 1>&2
-        return 1
+        return 2
     fi
     local z_query=""$z_command" query"
 
-    zparseopts -D -F -A args -- s -shortest a -all d -debug h -help
+    if ! zparseopts -D -F -A args -- s -shortest a -all d -debug h -help; then
+        _zabb_usage
+        return 3
+    fi
 
     local opt
     for opt in "${(@k)args}"; do
@@ -123,8 +129,8 @@ zabb() {
             return
             ;;
         *)
-            _zabb_usage
-            return 2
+            echo "Programming error: unexpected flag \"$opt\"" 1>&2
+            return 4
             ;;
         esac
     done
@@ -136,7 +142,7 @@ zabb() {
         directory=$(realpath "$*")
         if [ ! -d "$directory" ]; then
             echo "$directory is not a valid, existing directory" 1>&2
-            return 3
+            return 5
         fi
     fi
 
