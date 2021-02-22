@@ -17,7 +17,7 @@ Presenting the solution: `zabb`
 
 By default, only abbreviations that start the same way as the directory name are returned.
 
-```
+```text
 USAGE:
   zabb [<DIRECTORY>]
 
