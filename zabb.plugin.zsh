@@ -113,14 +113,14 @@ zabb() {
     fi
     local z_query=""$z_command" query"
 
-    if ! zparseopts -D -F -A args -- s -shortest a -all d -debug h -help; then
+    if ! zparseopts -D -F -A flags -- s -shortest a -all d -debug h -help; then
         _zabb_usage
         return 3
     fi
 
-    local opt
-    for opt in "${(@k)args}"; do
-        case $opt in
+    local flag
+    for flag in "${(@k)flags}"; do
+        case $flag in
         -s|--shortest) local shortest=1 ;;
         -a|--all) local all=1 ;;
         -d|--debug) local debug=1 ;;
@@ -129,7 +129,7 @@ zabb() {
             return
             ;;
         *)
-            echo "Programming error: unexpected flag \"$opt\"" 1>&2
+            echo "Programming error: unexpected flag \"$flag\"" 1>&2
             return 4
             ;;
         esac
