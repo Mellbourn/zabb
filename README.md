@@ -7,7 +7,7 @@ zabb - a plugin for finding z abbreviations
 ## Command
 
 I love the [z][zoxide] command. It lets me quickly jump to my favorite directories by typing very few keys.
-But - sometimes I give in to my OCD and I wonder: _how_ few keys can I get a way with?
+But - sometimes I give in to my OCD and I wonder: _how_ few keys can I get away with?
 
 I can experiment, try different short versions. But this is hit-and-miss, and ironically, it can mess with the ranking and change what abbreviations can be used.
 
