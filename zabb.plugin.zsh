@@ -110,12 +110,15 @@ zabb() {
     fi
     local z_query=""$z_command" query"
 
-    while getopts "sadh" opt; do
+    zparseopts -D -F -A args -- s -shortest a -all d -debug h -help
+
+    local opt
+    for opt in "${(@k)args}"; do
         case $opt in
-        s) local shortest=1 ;;
-        a) local all=1 ;;
-        d) local debug=1 ;;
-        h)
+        -s|--shortest) local shortest=1 ;;
+        -a|--all) local all=1 ;;
+        -d|--debug) local debug=1 ;;
+        -h|--help)
             _zabb_help
             return
             ;;
@@ -125,7 +128,6 @@ zabb() {
             ;;
         esac
     done
-    shift $((OPTIND - 1))
 
     local directory
     if [ -z "$*" ]; then
