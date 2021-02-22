@@ -26,12 +26,15 @@ ARGS:
       Directory to find z abbrevs for. If none is given, it defaults to current working directory
 
 FLAGS:
-  -s  Allow abbreviations even if they do not start the same way as the directory name. (This will often find shorter abbreviations, but they may be less easy to remember)
-  -a  List all (contiguous) abbreviations (implies -s)
-  -h  Print help
+  -s or --shortest
+      Allow abbreviations even if they do not start the same way as the directory name. (This will often find shorter abbreviations, but they may be less easy to remember)
+  -a or --all
+      List all (contiguous) abbreviations (implies -s)
+  -h or --help
+      Print help
 ```
 
-Examples:
+## Examples
 
 ```zsh
 ~ > ls -d Do*
