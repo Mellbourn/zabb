@@ -16,7 +16,6 @@ Presenting the solution: `zabb`
 `zabb` is a command that tries to figure out the shortest memorable abbreviation of a directory that is usable by `z` to unambiguously jump to that directory.
 
 By default, only abbreviations that start the same way as the directory name are returned.
-Non-contiguous, i.e. space separated, abbreviations are not looked for. So, in some fairly rare circumstances the shortest abbreviations may not be found.
 
 ```
 USAGE:
@@ -61,6 +60,8 @@ cu
 um
 [...]
 ```
+
+Non-contiguous, i.e. space separated, abbreviations are not looked for. So, in some fairly rare circumstances the shortest abbreviations may not be found.
 
 Currently zabb only supports the [zoxide][zoxide] implementation of `z`. I welcome PRs to expand it to other implementations.
 
