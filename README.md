@@ -82,13 +82,6 @@ zinit ice wait'1' lucid
 zinit light mellbourn/zabb
 ```
 
-Or you can load `zabb` on demand:
-
-```zsh
-zinit ice lucid trigger-load'!zabb'
-zinit light mellbourn/zabb
-```
-
 ## License
 
 The MIT License (MIT)
