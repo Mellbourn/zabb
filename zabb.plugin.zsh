@@ -159,3 +159,5 @@ _zabb () {
     )
     _arguments $arguments
 }
+
+compdef _zabb zabb
