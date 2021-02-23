@@ -148,3 +148,14 @@ zabb() {
 
     _zabb_find_abbrevs "$directory"
 }
+
+_zabb () {
+    local arguments=(
+        {-s,--shortest}'[Allow abbreviations even if they do not start the same way as the directory name. (This will often find shorter abbreviations, but they may be less easy to remember)]'
+        {-a,--all}'[List all (contiguous) abbreviations (implies -s)]'
+        {-h,--help}'[print usage]'
+        {-d,--debug}'[turn on debug output]'
+        '*:directory to abbreviate:_directories'
+    )
+    _arguments $arguments
+}
