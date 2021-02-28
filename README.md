@@ -66,7 +66,7 @@ um
 
 Non-contiguous, i.e. space separated, abbreviations are not looked for. So, in some fairly rare circumstances the shortest abbreviations may not be found.
 
-Currently zabb mainly supports the [zoxide][zoxide] implementation of `z`. It works ok with [z.lua][z.lua], [fasd][fasd] and [z][rupa_z], but may not find the shortest abbreviations for those. It may work for other implementations, if they support the `z -e` command. I welcome PRs to expand it to other implementations.
+Currently zabb mainly supports the [zoxide][zoxide] and [z.lua][z.lua] implementation of `z`. It works ok with [fasd][fasd] and [z][rupa_z], but may not find the shortest abbreviations for those. It may work for other implementations, if they support the `z -e` command. I welcome PRs to expand it to other implementations.
 
 ## Installation
 
