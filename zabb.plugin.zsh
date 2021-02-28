@@ -79,6 +79,15 @@ _zabb_find_abbrevs() {
     return 1
 }
 
+_zabb_one_letter_abbrevs() {
+    for fragment in {a..z}; do
+        if ! local foundDirectory=$((eval ""$z_query" "$fragment"") 2>/dev/null); then
+            continue
+        fi
+        echo "$fragment $foundDirectory"
+    done
+}
+
 _zabb_help() {
     echo 'Find the shortest abbreviations that can be used to autojump (a.k.a. "z") to the given (or current) directory'
     echo
@@ -101,6 +110,8 @@ _zabb_usage() {
     echo "      Allow abbreviations even if they do not start the same way as the directory name. (This will often find shorter abbreviations, but they may be less easy to remember)"
     echo "  -a or --all"
     echo "      List all (contiguous) abbreviations (implies -s)"
+    echo "  -1 or --one-letter"
+    echo "      List what all single letter abbreviations will result in"
     echo "  -h or --help"
     echo "      Print help"
 }
@@ -128,7 +139,7 @@ zabb() {
         return 2
     fi
 
-    if ! zparseopts -D -F -A flags -- s -shortest a -all d -debug h -help; then
+    if ! zparseopts -D -F -A flags -- s -shortest a -all 1 -one-letter d -debug h -help; then
         _zabb_usage
         return 3
     fi
@@ -138,15 +149,16 @@ zabb() {
         case $flag in
         -s|--shortest) local shortest=1 ;;
         -a|--all) local all=1 ;;
+        -1|--one-letter)
+            _zabb_one_letter_abbrevs
+            return ;;
         -d|--debug) local debug=1 ;;
         -h|--help)
             _zabb_help
-            return
-            ;;
+            return ;;
         *)
             echo "Programming error: unexpected flag \"$flag\"" 1>&2
-            return 4
-            ;;
+            return 4 ;;
         esac
     done
 
