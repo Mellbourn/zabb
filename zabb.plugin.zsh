@@ -120,6 +120,10 @@ _zabb_usage() {
 }
 
 _zabb_get_query() {
+    if [ -n "$ZLUA_SCRIPT" ]; then
+        echo "_zlua -e"
+        return
+    fi
     local z_command
     z_command=zoxide
     if [ -x "$(command -v "$z_command")" ]; then
@@ -131,7 +135,13 @@ _zabb_get_query() {
         echo ""$z_command" -l -d -1"
         return
     fi
-    echo "zabb only works if you have \"zoxide\" or \"fasd\" installed to implement the \"z\" autojump command" 1>&2
+    z_command=z
+    if type "$z_command" > /dev/null; then
+        # Guessing that the z command found is compatible with good old https://github.com/rupa/z
+        echo ""$z_command" -e"
+        return
+    fi
+    echo "zabb only works if you have \"zoxide\", \"z.lua\", \"rupa/z\" or \"fasd\" installed to implement the \"z\" autojump command" 1>&2
     echo "not found"
     return
 }
