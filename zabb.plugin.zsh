@@ -125,7 +125,7 @@ _zabb_get_query() {
     fi
     z_command=fasd
     if [ -x "$(command -v "$z_command")" ]; then
-        echo ""$z_command" -l -1"
+        echo ""$z_command" -l -d -1"
         return
     fi
     echo "zabb only works if you have \"zoxide\" or \"fasd\" installed to implement the \"z\" autojump command" 1>&2
