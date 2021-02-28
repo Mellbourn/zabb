@@ -66,7 +66,7 @@ um
 
 Non-contiguous, i.e. space separated, abbreviations are not looked for. So, in some fairly rare circumstances the shortest abbreviations may not be found.
 
-Currently zabb only supports the [zoxide][zoxide] implementation of `z`. I welcome PRs to expand it to other implementations.
+Currently zabb mainly supports the [zoxide][zoxide] implementation of `z`. It works ok with [z.lua][z.lua], [fasd][fasd] and [z][rupa_z], but may not find the shortest abbreviations for those. It may work for other implementations, if they support the `z -e` command. I welcome PRs to expand it to other implementations.
 
 ## Installation
 
@@ -93,3 +93,6 @@ Copyright (c) 2021 Klas Mellbourn
 [zinit]: https://github.com/zdharma/zinit
 [turbo mode]: http://zdharma.org/zinit/wiki/INTRODUCTION/#turbo_mode_zsh_53
 [zoxide]: https://github.com/ajeetdsouza/zoxide
+[z.lua]: https://github.com/skywind3000/z.lua
+[fasd]: https://github.com/clvv/fasd
+[rupa_z]: https://github.com/rupa/z
