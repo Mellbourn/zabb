@@ -84,6 +84,9 @@ _zabb_one_letter_abbrevs() {
         if ! local foundDirectory=$((eval ""$z_query" "$fragment"") 2>/dev/null); then
             continue
         fi
+        if [[ "$foundDirectory" == '' ]]; then
+            continue
+        fi
         echo "$fragment $foundDirectory"
     done
 }
