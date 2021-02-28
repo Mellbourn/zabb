@@ -105,13 +105,28 @@ _zabb_usage() {
     echo "      Print help"
 }
 
+_zabb_get_query() {
+    local z_command
+    z_command=fasd
+    if [ -x "$(command -v "$z_command")" ]; then
+        echo ""$z_command" -l -1"
+        return
+    fi
+    z_command=zoxide
+    if [ -x "$(command -v "$z_command")" ]; then
+        echo ""$z_command" query"
+        return
+    fi
+    echo "zabb only works if you have \"zoxide\" or \"fasd\" installed to implement the \"z\" autojump command" 1>&2
+    echo "not found"
+    return
+}
+
 zabb() {
-    local z_command=zoxide
-    if [ ! -x "$(command -v "$z_command")" ]; then
-        echo ""$0" only works if you have \""$z_command"\" installed to implement the \"z\" autojump command" 1>&2
+    local z_query=$(_zabb_get_query)
+    if [[ "$z_query" == "not found" ]]; then
         return 2
     fi
-    local z_query=""$z_command" query"
 
     if ! zparseopts -D -F -A flags -- s -shortest a -all d -debug h -help; then
         _zabb_usage
