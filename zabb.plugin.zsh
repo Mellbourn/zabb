@@ -178,6 +178,9 @@ zabb() {
     local directory
     if [ -z "$*" ]; then
         directory=$(realpath "$PWD")
+        if [[ "$z_query" == "_zlua -e" ]]; then
+            local zlua_cwd=1
+        fi
     else
         directory=$(realpath "$*")
         if [ ! -d "$directory" ]; then
@@ -186,7 +189,15 @@ zabb() {
         fi
     fi
 
+    if [ -n $zlua_cwd ]; then
+        pushd -q ..
+    fi
     _zabb_find_abbrevs "$directory"
+    local exit_status=$?
+    if [ -n $zlua_cwd ]; then
+        popd -q
+    fi
+    return $exit_status
 }
 
 _zabb () {
