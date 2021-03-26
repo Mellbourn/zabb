@@ -23,7 +23,7 @@ USAGE:
 
 ARGS:
   <DIRECTORY>
-      Directory to find z abbrevs for. If none is given, it defaults to current working directory
+      Directory to find z abbrevs for. If none is given, it defaults to the current working directory
 
 FLAGS:
   -s or --shortest
@@ -64,9 +64,9 @@ um
 [...]
 ```
 
-Non-contiguous, i.e. space separated, abbreviations are not looked for. So, in some fairly rare circumstances the shortest abbreviations may not be found.
+Non-contiguous, i.e. space-separated, abbreviations are not looked for. So, in some fairly rare circumstances, the shortest abbreviations may not be found.
 
-Currently zabb mainly supports the [zoxide][zoxide] implementation of `z`. It works ok with [z.lua][z.lua], [fasd][fasd] and [z][rupa_z], but may not find the shortest abbreviations for those. It may work for other implementations, if they support the `z -e` command. I welcome PRs to expand `zabb` to other implementations.
+Currently zabb mainly supports the [zoxide][zoxide] implementation of `z`. It works ok with [z.lua][z.lua], [fasd][fasd] and [z][rupa_z], but may not find the shortest abbreviations for those. It may work for other implementations if they support the `z -e` command. I welcome PRs to expand `zabb` to other implementations.
 
 ## Installation
 
