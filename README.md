@@ -30,6 +30,8 @@ FLAGS:
       Allow abbreviations even if they do not start the same way as the directory name. (This will often find shorter abbreviations, but they may be less easy to remember)
   -a or --all
       List all (contiguous) abbreviations (implies -s)
+  -1 or --one-letter
+      List which directories each single letter abbreviations in the alphabet will result in
   -h or --help
       Print help
 ```

@@ -204,7 +204,7 @@ _zabb () {
     local arguments=(
         {-s,--shortest}'[Allow abbreviations even if they do not start the same way as the directory name. (This will often find shorter abbreviations, but they may be less easy to remember)]'
         {-a,--all}'[List all (contiguous) abbreviations (implies -s)]'
-        {-1,--one-letter}'[List what all single letter abbreviations will result in]'
+        {-1,--one-letter}'[List which directories each single letter abbreviations in the alphabet will result in]'
         {-h,--help}'[print usage]'
         {-d,--debug}'[turn on debug output]'
         '*:directory to abbreviate:_directories'
