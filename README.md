@@ -7,7 +7,7 @@ zabb - a plugin for finding z abbreviations
 ## Command
 
 I love the [z][zoxide] command. It lets me quickly jump to my favorite directories by typing very few keys.
-But - sometimes I give in to my OCD and I wonder: _how_ few keys can I get away with?
+But - sometimes I give in to my OCD and pause to wonder: _how_ few keys can I get away with?
 
 I can experiment, try different short versions. But this is hit-and-miss, and ironically, it can mess with the ranking and change what abbreviations can be used.
 
@@ -66,7 +66,7 @@ um
 
 Non-contiguous, i.e. space separated, abbreviations are not looked for. So, in some fairly rare circumstances the shortest abbreviations may not be found.
 
-Currently zabb mainly supports the [zoxide][zoxide] and [z.lua][z.lua] implementation of `z`. It works ok with [fasd][fasd] and [z][rupa_z], but may not find the shortest abbreviations for those. It may work for other implementations, if they support the `z -e` command. I welcome PRs to expand it to other implementations.
+Currently zabb mainly supports the [zoxide][zoxide] implementation of `z`. It works ok with [z.lua][z.lua], [fasd][fasd] and [z][rupa_z], but may not find the shortest abbreviations for those. It may work for other implementations, if they support the `z -e` command. I welcome PRs to expand `zabb` to other implementations.
 
 ## Installation
 
