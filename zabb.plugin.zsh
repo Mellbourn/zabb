@@ -81,7 +81,7 @@ _zabb_find_abbrevs() {
 
 _zabb_one_letter_abbrevs() {
     for fragment in {a..z}; do
-        if ! local foundDirectory=$((eval ""$z_query" "$fragment"") 2>/dev/null); then
+        if ! local foundDirectory=$(eval ""$z_query" "$fragment"" 2>/dev/null); then
             continue
         fi
         if [[ "$foundDirectory" == '' ]]; then
