@@ -45,7 +45,7 @@ _zabb_find_abbrevs() {
             if _zabb_dangerous "$fragment"; then
                 continue
             fi
-            if ! local foundDirectory=$((eval ""$z_query" "$fragment"") 2>/dev/null); then
+            if ! local foundDirectory=$(eval ""$z_query" "$fragment"" 2>/dev/null); then
                 continue
             fi
             if [[ "$foundDirectory" == '' ]]; then
