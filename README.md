@@ -2,7 +2,7 @@
 
 [![License: MIT][license icon]][license]
 
-zabb - a plugin for finding z abbreviations
+zabb - a zsh plugin for finding z abbreviations
 
 ## Command
 
@@ -75,7 +75,7 @@ Currently zabb mainly supports the [zoxide][zoxide] implementation of `z`. It wo
 ### zinit
 
 This plugin is designed as a [zinit][zinit] module, but it's also
-compatible with other plugin managers.
+compatible with other zsh plugin managers.
 
 You can use [Turbo Mode][turbo mode] to load `zabb`:
 
